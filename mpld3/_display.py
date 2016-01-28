@@ -58,8 +58,8 @@ if(typeof(window.mpld3) !== "undefined" && window.mpld3._mpld3IsLoaded){
             mpld3.draw_figure({{ figid }}, {{ figure_json }});
     }(mpld3);
 }else{
-  require.config({paths: {d3: "{{ d3_url[:-3] }}"}});
-  require(["d3"], function(d3){
+  require.config({paths: {d3: "{{ d3_url[:-3] }}", mpld3: "{{ mpld3_url[:-3] }}"}});
+  require(["d3", "mpld3"], function(d3){
     window.d3 = d3;
     $.getScript("{{ mpld3_url }}", function(){
        {{ extra_js }}
